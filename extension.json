@@ -1,30 +1,30 @@
 {
-  "name": "LiveI18n",
-  "version": "0.0.1",
-  "author": [
-    "Megan Cutrofello"
-  ],
-  "url": "",
-  "descriptionmsg": "livei18n-desc",
-  "license-name": "GPL-2.0-or-later",
-  "MessagesDirs": {
-    "LiveI18n": [
-      "i18n"
-    ]
-  },
-  "config": {
-    "LiveI18nDefaultLanguageCode": "en"
-  },
-  "ExtensionMessagesFiles": {
-    "LiveI18nMagic": "LiveI18n.i18n.magic.php"
-  },
-  "AutoloadClasses": {
-    "LiveI18nHooks": "includes/LiveI18nHooks.php",
-    "LiveI18n": "includes/LiveI18n.php",
-    "LiveI18nLuaLibrary": "includes/LiveI18nLuaLibrary.php"
-  },
-  "Hooks": {
-    "ParserFirstCallInit": "LiveI18nHooks::registerParserFunctions",
-    "ScribuntoExternalLibraries": "LiveI18nHooks::addLuaLibrary"
-  }
+	"name": "LiveI18n",
+	"version": "0.0.1",
+	"author": [
+		"Megan Cutrofello"
+	],
+	"url": "",
+	"descriptionmsg": "livei18n-desc",
+	"license-name": "GPL-2.0-or-later",
+	"MessagesDirs": {
+		"LiveI18n": [
+			"i18n"
+		]
+	},
+	"config": {
+		"LiveI18nDefaultLanguageCode": "en"
+	},
+	"ExtensionMessagesFiles": {
+		"LiveI18nMagic": "LiveI18n.i18n.magic.php"
+	},
+	"AutoloadClasses": {
+		"LiveI18nHooks": "includes/LiveI18nHooks.php",
+		"LiveI18n": "includes/LiveI18n.php",
+		"LiveI18nLuaLibrary": "includes/LiveI18nLuaLibrary.php"
+	},
+	"Hooks": {
+		"ParserFirstCallInit": "LiveI18nHooks::registerParserFunctions",
+		"ScribuntoExternalLibraries": "LiveI18nHooks::addLuaLibrary"
+	}
 }

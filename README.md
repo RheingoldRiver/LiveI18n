@@ -8,7 +8,7 @@ If you want to extend the translation of the interface slightly to infobox label
 This extension attempts to present an alternative, with a single parser function that captures the spirit of the MyVariables/switch approach:
 
 ```
-{{#live_i18n:en=hello|es=hola
+{{#live_i18n:en=hello|es=hola}}
 ```
 
 ## Configuration

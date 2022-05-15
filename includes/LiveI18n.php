@@ -6,11 +6,12 @@
  * @ingroup LiveI18n
  */
 
+use MediaWiki\Languages\LanguageFallback;
+use MediaWiki\MediaWikiServices;
 use PPFrame;
 
 class LiveI18n {
 	public static function run( Parser $parser, PPFrame $frame, array $args ) {
-		$lang = $parser->getOptions()->getUserLang();
 		$params = [];
 		foreach ( $args as $arg ) {
 			$param = trim( $frame->expand( $arg ) );
@@ -20,12 +21,27 @@ class LiveI18n {
 			}
 		}
 
-		if ( array_key_exists( $lang, $params ) ) {
-			return $params[$lang];
-		} else {
-			$defaultLang = $GLOBALS["wgLiveI18nDefaultLanguageCode"];
+		return self::getOutput( $parser, $params );
 
-			return $params[$defaultLang];
+	}
+
+	public static function getOutput( $parser, $params ) {
+		$userLang = $parser->getOptions()->getUserLang();
+		$defaultLang = $GLOBALS["wgLiveI18nDefaultLanguageCode"];
+		if ( array_key_exists( $userLang, $params ) ) {
+			return $params[$userLang];
+		} else {
+			$languageFallback = MediaWikiServices::getInstance()->getLanguageFallback();
+			$fallbacks = $languageFallback->getAll( $userLang, LanguageFallback::STRICT );
+
+			foreach ( $fallbacks as $attemptedLang ) {
+				if ( array_key_exists( $attemptedLang, $params ) ) {
+					return $params[$attemptedLang];
+				}
+			}
+
+			return array_key_exists( $defaultLang, $params ) ? $params[$defaultLang] : '';
 		}
 	}
+
 }

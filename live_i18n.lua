@@ -1,13 +1,13 @@
 local live_i18n = {}
 local php
+local options
 
-function live_i18n.setupInterface(options)
+function live_i18n.setupInterface(opts)
     -- Remove setup function
     live_i18n.setupInterface = nil
-
-    -- Copy the PHP callbacks to a local variable, and remove the global
     php = mw_interface
     mw_interface = nil
+    options = opts
 
     -- Install into the mw global
     mw = mw or {}

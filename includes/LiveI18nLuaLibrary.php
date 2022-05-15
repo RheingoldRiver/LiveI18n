@@ -12,10 +12,10 @@ class LiveI18nLuaLibrary extends Scribunto_LuaLibraryBase {
         $parser = $this->getParser();
         $lang = $parser->getOptions()->getUserLang();
         if (array_key_exists($lang, $args)) {
-            return $args[$lang];
+            return [$args[$lang]];
         } else {
             $defaultLang = $GLOBALS["wgLiveI18nDefaultLanguageCode"];
-            return $args[$defaultLang];
+            return [$args[$defaultLang]];
         }
     }
 

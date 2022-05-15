@@ -4,7 +4,10 @@
 	"author": [
 		"Megan Cutrofello"
 	],
-	"url": "",
+	"url": "https://github.com/RheingoldRiver/LiveI18n",
+	"requires": {
+		"MediaWiki": ">= 1.35"
+	},
 	"descriptionmsg": "livei18n-desc",
 	"license-name": "GPL-2.0-or-later",
 	"MessagesDirs": {

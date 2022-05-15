@@ -9,15 +9,14 @@ class LiveI18nLuaLibrary extends Scribunto_LuaLibraryBase {
     }
 
     public function translate($args) {
-//        $parser = $this->getParser();
-//        $lang = $parser->getOptions()->getUserLang();
-//        if (array_key_exists($lang, $args)) {
-//            return $args[$lang];
-//        } else {
-//            $defaultLang = $GLOBALS["wgLiveI18nDefaultLanguageCode"];
-//            return $args[$defaultLang];
-//        }
-        return 'kittens';
+        $parser = $this->getParser();
+        $lang = $parser->getOptions()->getUserLang();
+        if (array_key_exists($lang, $args)) {
+            return $args[$lang];
+        } else {
+            $defaultLang = $GLOBALS["wgLiveI18nDefaultLanguageCode"];
+            return $args[$defaultLang];
+        }
     }
 
 }

@@ -11,5 +11,11 @@ This extension attempts to present an alternative, with a single parser function
 {{#live_i18n:en=hello|es=hola}}
 ```
 
+There is also Lua support:
+
+```lua
+mw.ext.live_i18n.translate{ en = "Hello", es = "Hola" }
+```
+
 ## Configuration
 You can set a variable `$wgLiveI18nDefaultLanguageCode` with the default language to use; this is what will display if the user's language is not present in the parser function. The default value provided by the extension is `en`.

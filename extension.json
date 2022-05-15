@@ -20,9 +20,11 @@
   },
   "AutoloadClasses": {
     "LiveI18nHooks": "includes/LiveI18nHooks.php",
-    "LiveI18n": "includes/LiveI18n.php"
+    "LiveI18n": "includes/LiveI18n.php",
+    "LiveI18nLuaLibrary": "includes/LiveI18nLuaLibrary.php"
   },
   "Hooks": {
-    "ParserFirstCallInit": "LiveI18nHooks::registerParserFunctions"
+    "ParserFirstCallInit": "LiveI18nHooks::registerParserFunctions",
+    "ScribuntoExternalLibraries": "LiveI18nHooks::addLuaLibrary"
   }
 }

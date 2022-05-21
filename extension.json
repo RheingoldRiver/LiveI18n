@@ -16,7 +16,7 @@
 		]
 	},
 	"config": {
-		"LiveI18nDefaultLanguageCode": "en"
+		"LiveI18nDefaultLanguageCode": null
 	},
 	"ExtensionMessagesFiles": {
 		"LiveI18nMagic": "LiveI18n.i18n.magic.php"

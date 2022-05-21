@@ -18,4 +18,4 @@ mw.ext.live_i18n.translate{ en = "Hello", es = "Hola" }
 ```
 
 ## Configuration
-You can set a variable `$wgLiveI18nDefaultLanguageCode` with the default language to use; this is what will display if the user's language is not present in the parser function. The default value provided by the extension is `en`.
+You can set a variable `$wgLiveI18nDefaultLanguageCode` with the default language to use; this is what will display if the user's language is not present in the parser function. The default value provided by the extension is null, which makes the extension default to the value of `$wgLanguageCode`.

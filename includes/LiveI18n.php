@@ -27,21 +27,23 @@ class LiveI18n {
 
 	public static function getOutput( $parser, $params ) {
 		$userLang = $parser->getOptions()->getUserLang();
-		$defaultLang = $GLOBALS["wgLiveI18nDefaultLanguageCode"];
 		if ( array_key_exists( $userLang, $params ) ) {
 			return $params[$userLang];
-		} else {
-			$languageFallback = MediaWikiServices::getInstance()->getLanguageFallback();
-			$fallbacks = $languageFallback->getAll( $userLang, LanguageFallback::STRICT );
-
-			foreach ( $fallbacks as $attemptedLang ) {
-				if ( array_key_exists( $attemptedLang, $params ) ) {
-					return $params[$attemptedLang];
-				}
-			}
-
-			return array_key_exists( $defaultLang, $params ) ? $params[$defaultLang] : '';
 		}
+
+		$languageFallback = MediaWikiServices::getInstance()->getLanguageFallback();
+		$fallbacks = $languageFallback->getAll( $userLang, LanguageFallback::STRICT );
+		foreach ( $fallbacks as $attemptedLang ) {
+			if ( array_key_exists( $attemptedLang, $params ) ) {
+				return $params[$attemptedLang];
+			}
+		}
+
+		$defaultLang = $GLOBALS["wgLiveI18nDefaultLanguageCode"];
+		if ( $defaultLang === null ) {
+			$defaultLang = $GLOBALS['wgLanguageCode'];
+		}
+		return array_key_exists( $defaultLang, $params ) ? $params[$defaultLang] : '';
 	}
 
 }

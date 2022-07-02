@@ -16,7 +16,7 @@ class LiveI18n {
 		foreach ( $args as $arg ) {
 			$param = trim( $frame->expand( $arg ) );
 			$parts = explode( '=', $param, 2 );
-			if ( count( $parts == 2 ) ) {
+			if ( count( $parts ) == 2 ) {
 				$params[$parts[0]] = $parts[1];
 			}
 		}
@@ -43,6 +43,7 @@ class LiveI18n {
 		if ( $defaultLang === null ) {
 			$defaultLang = $GLOBALS['wgLanguageCode'];
 		}
+
 		return array_key_exists( $defaultLang, $params ) ? $params[$defaultLang] : '';
 	}
 
